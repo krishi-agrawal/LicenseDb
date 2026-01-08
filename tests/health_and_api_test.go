@@ -44,4 +44,3 @@ func TestGetAPICollection(t *testing.T) {
 		assert.NotNil(t, res.Data.UnAuthenticated)
 	})
 }
-

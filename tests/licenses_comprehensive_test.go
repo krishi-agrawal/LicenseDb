@@ -246,8 +246,8 @@ func TestSearchInLicense(t *testing.T) {
 
 	t.Run("searchWithFullText", func(t *testing.T) {
 		searchReq := models.SearchLicense{
-			Field:     "shortname",
-			Search:    "full_text_search",
+			Field:      "shortname",
+			Search:     "full_text_search",
 			SearchTerm: "MIT",
 		}
 
@@ -264,8 +264,8 @@ func TestSearchInLicense(t *testing.T) {
 
 	t.Run("searchWithFuzzy", func(t *testing.T) {
 		searchReq := models.SearchLicense{
-			Field:     "fullname",
-			Search:    "fuzzy",
+			Field:      "fullname",
+			Search:     "fuzzy",
 			SearchTerm: "MIT",
 		}
 
@@ -282,8 +282,8 @@ func TestSearchInLicense(t *testing.T) {
 
 	t.Run("searchWithInvalidField", func(t *testing.T) {
 		searchReq := models.SearchLicense{
-			Field:     "invalid_field",
-			Search:    "full_text_search",
+			Field:      "invalid_field",
+			Search:     "full_text_search",
 			SearchTerm: "MIT",
 		}
 
@@ -293,8 +293,8 @@ func TestSearchInLicense(t *testing.T) {
 
 	t.Run("searchWithInvalidAlgorithm", func(t *testing.T) {
 		searchReq := models.SearchLicense{
-			Field:     "shortname",
-			Search:    "invalid_algorithm",
+			Field:      "shortname",
+			Search:     "invalid_algorithm",
 			SearchTerm: "MIT",
 		}
 
@@ -356,4 +356,3 @@ func TestGetSimilarLicenses(t *testing.T) {
 		assert.Equal(t, http.StatusBadRequest, w.Code)
 	})
 }
-

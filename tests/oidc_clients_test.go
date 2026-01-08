@@ -116,4 +116,3 @@ func TestRevokeClient(t *testing.T) {
 		assert.Equal(t, http.StatusUnauthorized, w.Code)
 	})
 }
-

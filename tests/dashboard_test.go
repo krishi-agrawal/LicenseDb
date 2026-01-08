@@ -48,4 +48,3 @@ func TestGetDashboardData(t *testing.T) {
 		assert.Contains(t, []int{http.StatusOK, http.StatusUnauthorized}, w.Code)
 	})
 }
-

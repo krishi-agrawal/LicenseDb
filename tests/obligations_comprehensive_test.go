@@ -185,7 +185,7 @@ func TestGetObligationAudits(t *testing.T) {
 	t.Run("getAuditsForNonExistingObligation", func(t *testing.T) {
 		w := makeRequest("GET", "/obligations/"+uuid.New().String()+"/audits", nil, true)
 		assert.Equal(t, http.StatusOK, w.Code)
-		
+
 		var res models.AuditResponse
 		if err := json.Unmarshal(w.Body.Bytes(), &res); err != nil {
 			t.Errorf("Error unmarshalling JSON: %v", err)
@@ -347,4 +347,3 @@ func TestGetSimilarObligations(t *testing.T) {
 		assert.Equal(t, http.StatusBadRequest, w.Code)
 	})
 }
-
