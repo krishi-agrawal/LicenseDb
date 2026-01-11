@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Krishi Agrawal <krishi.agrawal26@gmail.com>
+// SPDX-FileCopyrightText: 2026 Krishi Agrawal <krishi.agrawal26@gmail.com>
 //
 // SPDX-License-Identifier: GPL-2.0-only
 

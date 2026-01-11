@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Krishi Agrawal <krishi.agrawal26@gmail.com>
+// SPDX-FileCopyrightText: 2026 Krishi Agrawal <krishi.agrawal26@gmail.com>
 //
 // SPDX-License-Identifier: GPL-2.0-only
 
@@ -61,8 +61,6 @@ func TestGetAllObligation(t *testing.T) {
 }
 
 func TestGetObligation(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	dto := models.ObligationCreateDTO{
 		Topic:          "test-get-obligation",
 		Type:           "RIGHT",
@@ -111,8 +109,6 @@ func TestGetObligation(t *testing.T) {
 }
 
 func TestGetAllObligationPreviews(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	t.Run("getActivePreviews", func(t *testing.T) {
 		w := makeRequest("GET", "/obligations/preview?active=true", nil, true)
 		assert.Equal(t, http.StatusOK, w.Code)
@@ -133,8 +129,6 @@ func TestGetAllObligationPreviews(t *testing.T) {
 }
 
 func TestGetObligationAudits(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	dto := models.ObligationCreateDTO{
 		Topic:          "test-audit-obligation",
 		Type:           "RIGHT",
@@ -197,8 +191,6 @@ func TestGetObligationAudits(t *testing.T) {
 }
 
 func TestExportObligations(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	t.Run("exportSuccess", func(t *testing.T) {
 		w := makeRequest("GET", "/obligations/export", nil, true)
 		assert.Equal(t, http.StatusOK, w.Code)
@@ -214,8 +206,6 @@ func TestExportObligations(t *testing.T) {
 }
 
 func TestImportObligations(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	t.Run("importSuccess", func(t *testing.T) {
 		licenseW := makeRequest("GET", "/licenses", nil, true)
 		assert.Equal(t, http.StatusOK, licenseW.Code)
@@ -306,8 +296,6 @@ func TestImportObligations(t *testing.T) {
 }
 
 func TestGetSimilarObligations(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	t.Run("findSimilarObligations", func(t *testing.T) {
 		similarityReq := models.SimilarityRequest{
 			Text: "You must include the copyright notice and this permission notice in all copies",

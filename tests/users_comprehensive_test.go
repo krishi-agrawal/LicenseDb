@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Krishi Agrawal <krishi.agrawal26@gmail.com>
+// SPDX-FileCopyrightText: 2026 Krishi Agrawal <krishi.agrawal26@gmail.com>
 //
 // SPDX-License-Identifier: GPL-2.0-only
 
@@ -61,8 +61,6 @@ func TestGetAllUser(t *testing.T) {
 }
 
 func TestGetUser(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	t.Run("getExistingUser", func(t *testing.T) {
 		w := makeRequest("GET", "/users/fossy_superadmin", nil, true)
 		assert.Equal(t, http.StatusOK, w.Code)
@@ -89,8 +87,6 @@ func TestGetUser(t *testing.T) {
 }
 
 func TestGetUserProfile(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	t.Run("getOwnProfile", func(t *testing.T) {
 		w := makeRequest("GET", "/users/profile", nil, true)
 		assert.Equal(t, http.StatusOK, w.Code)
@@ -113,8 +109,6 @@ func TestGetUserProfile(t *testing.T) {
 }
 
 func TestUpdateUser(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	testUser := models.UserCreate{
 		UserName:     ptr("test_update_user"),
 		UserPassword: ptr("testpass123"),
@@ -172,8 +166,6 @@ func TestUpdateUser(t *testing.T) {
 }
 
 func TestUpdateProfile(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	t.Run("updateOwnProfile", func(t *testing.T) {
 		profileUpdate := models.ProfileUpdate{
 			DisplayName: ptr("My Updated Profile Name"),
@@ -250,8 +242,6 @@ func TestUpdateProfile(t *testing.T) {
 }
 
 func TestDeleteUser(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	testUser := models.UserCreate{
 		UserName:     ptr("test_delete_user"),
 		UserPassword: ptr("testpass123"),

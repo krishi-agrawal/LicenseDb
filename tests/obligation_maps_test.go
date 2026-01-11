@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Krishi Agrawal <krishi.agrawal26@gmail.com>
+// SPDX-FileCopyrightText: 2026 Krishi Agrawal <krishi.agrawal26@gmail.com>
 //
 // SPDX-License-Identifier: GPL-2.0-only
 
@@ -80,8 +80,6 @@ func TestGetObligationMapByObligationId(t *testing.T) {
 }
 
 func TestGetObligationMapByLicenseId(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	licenseW := makeRequest("GET", "/licenses", nil, true)
 	assert.Equal(t, http.StatusOK, licenseW.Code)
 
@@ -120,8 +118,6 @@ func TestGetObligationMapByLicenseId(t *testing.T) {
 }
 
 func TestPatchObligationMap(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	dto := models.ObligationCreateDTO{
 		Topic:          "test-patch-obligation-map",
 		Type:           "RIGHT",
@@ -223,8 +219,6 @@ func TestPatchObligationMap(t *testing.T) {
 }
 
 func TestUpdateLicenseInObligationMap(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	dto := models.ObligationCreateDTO{
 		Topic:          "test-update-obligation-map",
 		Type:           "RIGHT",

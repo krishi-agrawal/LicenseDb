@@ -173,10 +173,14 @@ func RevokeClient(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, er)
 		return
 	} else if result.RowsAffected == 0 {
+		errorMsg := "Oidc client not found"
+		if result.Error != nil {
+			errorMsg = result.Error.Error()
+		}
 		er := models.LicenseError{
 			Status:    http.StatusNotFound,
 			Message:   "Unable to delete oidc client",
-			Error:     "Oidc client not found",
+			Error:     errorMsg,
 			Path:      c.Request.URL.Path,
 			Timestamp: time.Now().Format(time.RFC3339),
 		}

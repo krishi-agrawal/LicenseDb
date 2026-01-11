@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Krishi Agrawal <krishi.agrawal26@gmail.com>
+// SPDX-FileCopyrightText: 2026 Krishi Agrawal <krishi.agrawal26@gmail.com>
 //
 // SPDX-License-Identifier: GPL-2.0-only
 
@@ -115,8 +115,6 @@ func TestFilterLicense(t *testing.T) {
 }
 
 func TestExportLicenses(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	t.Run("exportSuccess", func(t *testing.T) {
 		w := makeRequest("GET", "/licenses/export", nil, true)
 		assert.Equal(t, http.StatusOK, w.Code)
@@ -132,8 +130,6 @@ func TestExportLicenses(t *testing.T) {
 }
 
 func TestGetAllLicensePreviews(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	t.Run("getActivePreviews", func(t *testing.T) {
 		w := makeRequest("GET", "/licenses/preview?active=true", nil, true)
 		assert.Equal(t, http.StatusOK, w.Code)
@@ -166,8 +162,6 @@ func TestGetAllLicensePreviews(t *testing.T) {
 }
 
 func TestImportLicenses(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	t.Run("importSuccess", func(t *testing.T) {
 		licenses := []models.LicenseImportDTO{
 			{
@@ -242,8 +236,6 @@ func TestImportLicenses(t *testing.T) {
 }
 
 func TestSearchInLicense(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	t.Run("searchWithFullText", func(t *testing.T) {
 		searchReq := models.SearchLicense{
 			Field:      "shortname",
@@ -315,8 +307,6 @@ func TestSearchInLicense(t *testing.T) {
 }
 
 func TestGetSimilarLicenses(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	t.Run("findSimilarLicenses", func(t *testing.T) {
 		similarityReq := models.SimilarityRequest{
 			Text: "MIT License\n\nCopyright (c) <year> <copyright holders>\n\nPermission is hereby granted",

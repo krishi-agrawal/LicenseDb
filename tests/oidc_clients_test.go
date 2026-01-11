@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Krishi Agrawal <krishi.agrawal26@gmail.com>
+// SPDX-FileCopyrightText: 2026 Krishi Agrawal <krishi.agrawal26@gmail.com>
 //
 // SPDX-License-Identifier: GPL-2.0-only
 
@@ -37,8 +37,6 @@ func TestGetUserOidcClients(t *testing.T) {
 }
 
 func TestAddOidcClient(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	t.Run("addOidcClientSuccess", func(t *testing.T) {
 		oidcClient := models.CreateDeleteOidcClientDTO{
 			ClientId: "test-client-id-1",
@@ -85,8 +83,6 @@ func TestAddOidcClient(t *testing.T) {
 }
 
 func TestRevokeClient(t *testing.T) {
-	loginAs(t, "superadmin")
-
 	oidcClient := models.CreateDeleteOidcClientDTO{
 		ClientId: "test-revoke-client",
 	}
